@@ -1,0 +1,928 @@
+`````css
+/* =========================================
+   VELORA MOBILE
+   Elegant Apple Store Website
+   ========================================= */
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+
+/* =========================================
+   1. RESET & GLOBAL STYLES
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #FFFFF0;
+    color: #2C2C2A;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+.brand-font {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.02em;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================
+   2. NAVIGATION BAR
+   ========================================= */
+
+header {
+    background-color: rgba(255, 255, 240, 0.96);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    border-bottom: 1px solid #EAE6DF;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 1.2rem 2rem;
+}
+
+/* LOGO */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-container img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-container span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    color: #1A1A1A;
+    letter-spacing: 0.5px;
+}
+
+/* NAVIGATION LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    position: relative;
+
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    color: #5A5852;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #8C6D46;
+}
+
+/* UNDERLINE ANIMATION */
+
+.nav-links a::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: #8C6D46;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   3. HAMBURGER MENU
+   ========================================= */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+
+    cursor: pointer;
+    gap: 6px;
+
+    padding: 5px;
+}
+
+.hamburger span {
+    display: block;
+
+    width: 26px;
+    height: 2px;
+
+    background-color: #2C2C2A;
+    border-radius: 2px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* =========================================
+   4. MAIN LAYOUT
+   ========================================= */
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+
+/* =========================================
+   5. HERO SECTION
+   FULL PHOTO BACKGROUND
+   ========================================= */
+
+.hero-wide {
+    position: relative;
+
+    min-height: 80vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 6rem 2rem;
+
+    /* REPLACE WITH YOUR OWN PHOTO */
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.40),
+            rgba(0, 0, 0, 0.48)
+        ),
+        url("../images/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+/* HERO CONTENT */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+    margin: 0 auto;
+
+    color: #FFFFFF;
+
+    animation: heroFadeIn 1s ease both;
+}
+
+/* HERO ANIMATION */
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SMALL LABEL */
+
+.hero-tag {
+    display: inline-block;
+
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    color: #F0D8B5;
+    font-weight: 600;
+
+    margin-bottom: 1.5rem;
+}
+
+/* MAIN HEADING */
+
+.hero-wide h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(2.7rem, 5vw, 4.3rem);
+    line-height: 1.15;
+
+    color: #FFFFFF;
+
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.hero-wide h1 i {
+    font-style: italic;
+    font-weight: 400;
+
+    color: #F0D8B5;
+}
+
+/* HERO DESCRIPTION */
+
+.hero-subtitle {
+    max-width: 750px;
+    margin: 0 auto 2.5rem;
+
+    font-size: 1.1rem;
+    font-weight: 300;
+
+    line-height: 1.8;
+    color: #F3F3F3;
+}
+
+
+/* =========================================
+   6. HERO BUTTONS
+   ========================================= */
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 0.95rem 2.2rem;
+
+    background-color: #FFFFFF;
+    color: #222220;
+
+    border: 1px solid #FFFFFF;
+    border-radius: 40px;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #8C6D46;
+    color: #FFFFFF;
+
+    border-color: #8C6D46;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* SECONDARY BUTTON */
+
+.btn-outline {
+    background-color: transparent;
+    color: #FFFFFF;
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.btn-outline:hover {
+    background-color: #FFFFFF;
+    color: #222220;
+
+    border-color: #FFFFFF;
+    box-shadow: none;
+}
+
+
+/* =========================================
+   7. INTRODUCTION SECTION
+   ========================================= */
+
+.intro-section {
+    padding: 6rem 2rem;
+
+    background-color: #FFFAF0;
+
+    border-top: 1px solid #F0ECE1;
+    border-bottom: 1px solid #F0ECE1;
+}
+
+.container-narrow {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4rem;
+    align-items: center;
+}
+
+/* INTRODUCTION TEXT */
+
+.intro-text h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 2.5rem;
+    line-height: 1.25;
+
+    color: #1A1A1A;
+
+    margin-bottom: 1.5rem;
+}
+
+.intro-text p {
+    color: #5A5852;
+
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.intro-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   8. FEATURES GRID
+   ========================================= */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 1.5rem;
+}
+
+.feature-card {
+    background-color: #FFFFF0;
+
+    padding: 2rem;
+
+    border-radius: 16px;
+    border: 1px solid #EAE6DF;
+
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #8C6D46;
+
+    box-shadow: 0 12px 25px rgba(44, 44, 42, 0.06);
+}
+
+.feature-card h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+
+    margin-bottom: 0.6rem;
+    color: #1A1A1A;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: #757268;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   9. GENERAL PAGE LAYOUT
+   ABOUT, PRODUCTS, CONTACT
+   ========================================= */
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 4rem 2rem;
+}
+
+
+/* =========================================
+   10. ABOUT PAGE
+   ========================================= */
+
+.about-content {
+    background-color: #FFFAF0;
+
+    border: 1px solid #F0ECE1;
+    border-radius: 20px;
+
+    padding: 3.5rem;
+
+    line-height: 1.8;
+}
+
+.about-content h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 2.2rem;
+    line-height: 1.3;
+
+    margin-bottom: 1.5rem;
+    color: #8C6D46;
+}
+
+.about-content p {
+    margin-bottom: 1rem;
+    color: #5A5852;
+}
+
+
+/* =========================================
+   11. PRODUCTS PAGE
+   ========================================= */
+
+.product-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 2.5rem;
+}
+
+.product-card {
+    background-color: #FFFAF0;
+
+    border: 1px solid #F0ECE1;
+    border-radius: 20px;
+
+    padding: 2rem;
+    text-align: center;
+
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+
+    border-color: #DCD6C9;
+}
+
+.product-card img {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    height: 220px;
+
+    object-fit: contain;
+
+    margin: 0 auto 1.5rem;
+}
+
+.product-card h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 1.3rem;
+
+    margin-bottom: 0.5rem;
+    color: #1A1A1A;
+}
+
+.product-card .price {
+    font-weight: 700;
+    font-size: 1.1rem;
+
+    color: #8C6D46;
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* =========================================
+   12. CONTACT PAGE
+   ========================================= */
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 3rem;
+
+    background-color: #FFFAF0;
+
+    border: 1px solid #F0ECE1;
+    border-radius: 20px;
+
+    padding: 3.5rem;
+}
+
+/* CONTACT FORM */
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+
+    padding: 1rem;
+
+    border: 1px solid #E2DDD5;
+    background-color: #FFFFF0;
+
+    border-radius: 12px;
+    outline: none;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+
+    color: #2C2C2A;
+
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #8C6D46;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+
+/* =========================================
+   13. FOOTER
+   ========================================= */
+
+footer {
+    background-color: #F8F5EE;
+
+    text-align: center;
+
+    padding: 2rem;
+
+    border-top: 1px solid #EAE6DF;
+
+    margin-top: auto;
+
+    font-size: 0.9rem;
+    color: #8C887B;
+}
+
+
+/* =========================================
+   14. TABLET RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 1.1rem 1.5rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .intro-text h2 {
+        font-size: 2.2rem;
+    }
+
+    .contact-container {
+        gap: 2rem;
+        padding: 2.5rem;
+    }
+
+    .hero-wide {
+        min-height: 75vh;
+    }
+}
+
+
+/* =========================================
+   15. MOBILE RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+
+    .navbar {
+        position: relative;
+
+        padding: 1rem 1.2rem;
+
+        flex-wrap: wrap;
+    }
+
+    .logo-container {
+        gap: 8px;
+    }
+
+    .logo-container img {
+        height: 32px;
+    }
+
+    .logo-container span {
+        font-size: 1.15rem;
+    }
+
+    /* HAMBURGER */
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* MOBILE NAVIGATION */
+
+    .nav-links {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        background-color: #FFFFF0;
+
+        border-bottom: 1px solid #EAE6DF;
+
+        flex-direction: column;
+        align-items: center;
+
+        padding: 2rem 0;
+        gap: 1.5rem;
+
+        display: none;
+
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 0.95rem;
+    }
+
+    /* HERO */
+
+    .hero-wide {
+        min-height: 75vh;
+
+        padding: 4rem 1.5rem;
+
+        background-position: center;
+    }
+
+    .hero-tag {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-wide h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.8;
+
+        margin-bottom: 2rem;
+    }
+
+    /* BUTTONS */
+
+    .btn-group {
+        flex-direction: column;
+        align-items: center;
+
+        gap: 0.9rem;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+
+        padding: 0.9rem 1.5rem;
+    }
+
+    /* INTRODUCTION */
+
+    .intro-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .intro-text h2 {
+        font-size: 2rem;
+    }
+
+    .intro-text p {
+        font-size: 0.98rem;
+    }
+
+    /* FEATURES */
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    /* GENERAL PAGE */
+
+    .page-container {
+        padding: 3rem 1.2rem;
+    }
+
+    /* ABOUT */
+
+    .about-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+
+    /* PRODUCTS */
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .product-card {
+        padding: 1.5rem;
+    }
+
+    /* CONTACT */
+
+    .contact-container {
+        grid-template-columns: 1fr;
+
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+        padding: 1.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+
+/* =========================================
+   16. SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 380px) {
+
+    .logo-container img {
+        height: 28px;
+    }
+
+    .logo-container span {
+        font-size: 1rem;
+    }
+
+    .hero-wide h1 {
+        font-size: 2.1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .intro-text h2 {
+        font-size: 1.7rem;
+    }
+
+    .feature-card {
+        padding: 1.2rem;
+    }
+}
+
+
+/* =========================================
+   17. REDUCED MOTION ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+```
